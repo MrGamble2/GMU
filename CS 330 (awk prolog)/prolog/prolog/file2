@@ -1,0 +1,27 @@
+student(12345,cs,[smith,john]).
+student(12346,ece,[jacob,john]).
+
+entry(12345,cs1,[spring, 202]).
+entry(12345,cs11,[spring, 202]).
+entry(12345,cs2,[summer, 202]).
+entry(12345,cs3,[summer, 203]).
+entry(12345,cs33,[summer, 203]).
+entry(12345,cs4,[fall, 203]).
+
+entry(12346,cs2,[spring, 202]).
+entry(12346,ece2,[spring, 202]).
+entry(12346,ece3,[fall, 201]).
+entry(12346,ece33,[fall, 202]).
+
+approved_list(cs,[cs1,cs2,cs3,cs4,cs11,cs33]).
+approved_list(ece,[ece1,ece2,ece3,ece22,ece33]).
+
+coreq(cs3,cs33).
+coreq(cs1,cs11).
+coreq(ece2,ece22).
+coreq(ece3,ece33).
+prereq(cs1,cs2).
+prereq(cs2,cs3).
+prereq(cs3,cs4).
+prereq(ece1,ece2).
+prereq(ece2,ece3).

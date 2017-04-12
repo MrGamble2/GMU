@@ -1,0 +1,20 @@
+You are to create a (very) simple word processor.
+ 
+Your program will prompt the user to enter the name
+ 
+of an input file containing text ("Lab4_bad.txt").
+ 
+It will then prompt you for the name of an output file.
+ 
+Your program will open the input file for reading,
+ 
+and open the output file for writing. The program
+ 
+will then read the input file, one line at a time.
+ 
+After each line is read, the line will be printed to the
+ 
+screen and a prompt will appear.
+ 
+
+ 

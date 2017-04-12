@@ -1,0 +1,116 @@
+Script started on Sun 13 Mar 2016 04:15:20 PM EDT
+bash-4.1$ uname -a
+Linux zeus-0 2.6.32-573.18.1.el6.centos.plus.x86_64 #1 SMP Wed Feb 10 18:09:24 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+Lab6_bad.txt  lab6_sgamble2.c  Lab6_typescript_sgamble2  Makefile
+bash-4.1$ cat lab6_sgamble[Ke2.c
+//Sean Gamble G00892005
+//CS 262, SEction 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+void main(){
+	char fileL[256], fileO[256], strRd[120], fileN[50], newStr[256], remStr[256];
+	char *token;
+	char *token2;
+	int locR;
+	int locC;
+
+	printf("Please give file location\n ");
+	fgets(fileL, 50, stdin);
+	token= strtok(fileL, "\n");
+	FILE *in=fopen(token, "r");
+		
+	printf("Please give output file\n ");
+	fgets(fileO, 50, stdin);
+	token2= strtok(fileO, "\n");
+	FILE *out = fopen(token2, "w");
+	
+	//token= strtok(in, "\n");
+	//loops through each line of input
+	while( fgets(strRd, 200, in)!= NULL)
+	{
+		printf("%s\n", strRd);
+		printf("Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:\n");
+		scanf(" %d", &locR);
+		
+		strcpy(newStr, "");
+		token2= strtok(strRd, " ");
+		locC=0;
+		//creates new string including all but removed word
+		while(token2 != NULL)
+		{	
+			if(locC!=locR)	
+			{
+				strcat(newStr,token2);
+				strcat(newStr, " ");
+			}
+			else
+			{
+				strcat(remStr,token2);
+				strcat(remStr, " ");
+			}
+			token2=strtok(NULL, " ");
+			locC++;
+		}
+		//print to file
+		fprintf(out, "%s\n",newStr);
+	}
+	printf(" %s", remStr);	
+        fclose(in);
+        fclose(out);	
+}
+bash-4.1$ make
+gcc  -o  lab6_sgamble2  lab6_sgamble2.c  
+bash-4.1$ ls
+Lab6_bad.txt   lab6_sgamble2.c		 Makefile
+lab6_sgamble2  Lab6_typescript_sgamble2
+bash-4.1$ lab6_sgamble23[K
+Please give file location
+ Lab6_bad.txt
+Please give output file
+ Lab6_good.txt
+You are to NARF! create a (very) simple word processor.
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+3
+Your program will PINKY prompt the user to enter the name
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+3
+of an input file BRAIN containing text ("Lab4_bad.txt").
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+4
+It will then prompt you for the name TAKE of an output file.
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+8
+Your program OVER will open the input file for reading,
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+2
+and open the output file for THE writing. The program
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+6
+will then read the input file, one line at a time.
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+-1
+After each line is WORLD! read, the line will be printed to the
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+4
+screen and a TONIGHT prompt will appear.
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+3
+
+
+Enter position of word to delete (Start counting at 0). Enter -1 to skip deletion:
+-1
+  °®nüNARF! PINKY BRAIN TAKE OVER THE WORLD! TONIGHT bash-4.1$ exit
+
+Script done on Sun 13 Mar 2016 04:31:33 PM EDT

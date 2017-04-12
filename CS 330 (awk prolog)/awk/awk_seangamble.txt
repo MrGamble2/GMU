@@ -1,0 +1,18 @@
+BEGIN{money="[0-9]+\.[0-9][0-9]"}
+$1~money{mon=$1}
+$3~money{mon=$3}
+$4=="debit"{change=0-mon}
+$4=="deposit"{change=mon}
+$1~","{last=substr($1,0,length($1)-1); first=$2}
+$2~","{last=substr($2,0,length($2)-1); first=$3}
+($1 $2) !~ /\./ && ($1 $2)!~ /,/ {last=$2; first=$1}
+($2 $3) !~ /\./ && ($2 $3) !~ /,/ {last=$3; first=$2}
+
+
+$1~money||$3~money{array[first last]=array[first last]+change}
+END{for (key in array){
+	print key;
+	split(array[key],dot,"\.");
+	if(length(dot[2])==0)print (array[key] ".00");
+	if(length(dot[2])==1)print (array[key] "0");
+	if(length(dot[2])==2)print array[key]}}

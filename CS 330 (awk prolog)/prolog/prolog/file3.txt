@@ -1,0 +1,18 @@
+prereq_chain(cs1,cs4). Returns true even though there is no fact that says prereq(cs1,cs4) because cs1->cs2->cs3->cs4
+
+prereq_chain(cs1,cs33). Returns true because cs3 is a coreq of cs33 and cs2 is a prereq of cs3, and cs1 is a prereq of cs2.
+
+invalid_pair(12346,A,B). Returns all the invalid pairs in the current schedule of 12346. Invalid pair happens for any prereq A not being taken before (or at all) B, a coreq not being taken at the same time or at all, or a course that has a prereq for a coreq thats being taken after.    
+
+invalid_pair(12346,ece1,ece33). student 12346 is taking ece33, ece1 is the prereq of it because ece3 is the coreq of ece33 and ece1 is the prereq of that. The student isnt taking ece1 so it is an invalid pair. 
+
+invalid_pair(12345,A,B). different student (5 at the end). returns false because the schedule is sound.
+
+bad_course(12346,A). returns any course not in the allowed course list for the department student 12346 is in.
+
+bad_course(12345,A). different student (5 at the end). There is no possiable A because all classes in his entrys are in the approved list for CS, his department.
+
+valid_schedule(12346). Checks if student 12346 has a vailid schedule. Returns false because of a multitude of reasons.  
+
+valid_schedule(12345). Checks if student 12345 has a valid schedule. Returns true because there are no issues in his schedule, ie no bad course or invalid pair. 
+coreq(A,B). Returns all the coreq facts in the list of facts. 

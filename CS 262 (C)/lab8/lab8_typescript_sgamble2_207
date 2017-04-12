@@ -1,0 +1,183 @@
+Script started on Sat 02 Apr 2016 06:43:14 PM EDT
+bash-4.1$ uname -1
+uname: invalid option -- '1'
+Try `uname --help' for more information.
+bash-4.1$ uname -1[Ka
+Linux zeus-0 2.6.32-573.18.1.el6.centos.plus.x86_64 #1 SMP Wed Feb 10 18:09:24 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+lab8_sgamble2_207.c  lab8_typescript_sgamble2_207  Makefile
+bash-4.1$ cat lab8_sgamble2_207
+cat: lab8_sgamble2_207: No such file or directory
+bash-4.1$ cat lab8_sgamble2_207[C[C[C[C.c
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+
+typedef struct{
+	char locName[15];
+	char des[50];
+	float lat;
+	float lng;
+} hold;
+int resizeArray(hold **locArray, int aCur)
+{
+	*locArray= realloc(*locArray, 2*aCur*sizeof(hold));
+	if(locArray== NULL)
+	{
+		printf("Too many locations, out of memory\n");
+		exit(0);	
+	}
+	return 0;
+}	
+int addLoc(hold locArray[], int aCur)
+{	
+	char name[20];
+	char dest[20];
+	char logs[10];
+	char lats[10];
+	char temp[20];
+
+	hold newH;
+	getchar();
+
+	printf("please give location name\n");
+	fgets(name, 20, stdin);
+	strcpy(temp,strtok(name,"\n"));
+	strcpy(newH.locName,temp);
+
+	printf("please give description\n");
+        fgets(dest, 20, stdin);
+	strcpy(temp,strtok(name,"\n"));
+	strcpy(newH.des, temp);
+
+	printf("please give longitude\n");
+        fgets(logs, 20, stdin);
+	newH.lng = atof(logs); 
+	
+	printf("please give latitude\n");
+        fgets(lats, 20, stdin);	
+	newH.lat=atof(lats);
+	
+	//add to array
+	locArray[aCur] = newH;
+	return 1;
+}
+
+int main(){
+	hold* locArray=NULL;	
+	int aSize,y, aCur;
+	aCur=0;
+	printf("How many locations are there\n");
+	scanf(" %d", &aSize);
+	fflush(stdin);
+	locArray=malloc((sizeof(hold)*aSize)+1);
+	int t=1;
+	//menu
+	while(t==1)
+	{
+		fflush(stdin);
+		printf("What to do:\nadd location: 1\nPrint current list of locations: 2\nQuit: 3\n");
+		scanf("%d",&y);
+		switch(y)
+		{
+			case 1:
+				if(aSize==aCur)
+				{
+					aSize=aSize*2;
+					resizeArray(&locArray, aCur);
+				}
+				addLoc(locArray, aCur);
+				aCur++;
+				break;
+			case 2:
+				//print locations
+				;
+				int i;
+				for(i=0; i<aCur; i++)
+				{	
+					hold ptr=locArray[i];
+					printf("Location: %s, Description: %s, Latitude: %f, Longitude: %f\n", ptr.locName, ptr.des,ptr.lat,ptr.lng);
+				}
+				break;
+			case 3:
+				return 1;
+			
+		}
+	}
+return 1;
+} 
+bash-4.1$ make
+gcc  -o  lab8_sgamble2  lab8_sgamble2_207.c  
+bash-4.1$ lab8_sgamble2
+How many locations are there
+3
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+1
+please give location name
+dog
+please give description
+cat
+please give longitude
+4
+please give latitude
+5
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+1
+please give location name
+do^H^[[D        bird
+please give description
+bee
+please give longitude
+7
+please give latitude
+8
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+1
+please give location name
+tree
+please give description
+frog
+please give longitude
+56
+please give latitude
+13
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+1
+please give location name
+fog
+please give description
+cog
+please give longitude
+67
+please give latitude
+456
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+2
+Location: dog, Description: dog, Latitude: 5.000000, Longitude: 4.000000
+Location: bird, Description: bird, Latitude: 8.000000, Longitude: 7.000000
+Location: tree, Description: tree, Latitude: 13.000000, Longitude: 56.000000
+Location: fog, Description: fog, Latitude: 456.000000, Longitude: 67.000000
+What to do:
+add location: 1
+Print current list of locations: 2
+Quit: 3
+3
+bash-4.1$ exit
+
+Script done on Sat 02 Apr 2016 06:49:03 PM EDT

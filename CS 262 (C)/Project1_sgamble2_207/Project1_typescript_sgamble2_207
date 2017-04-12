@@ -1,0 +1,282 @@
+Script started on Sat 27 Feb 2016 05:07:11 PM EST
+bash-4.1$ =[K-unamea[K[K[K[K[K[K[Kuname -a
+Linux zeus-0 2.6.32-573.18.1.el6.centos.plus.x86_64 #1 SMP Wed Feb 10 18:09:24 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ make
+gcc -o Project1_sgamble2_207 Project1_sgamble2_207.c -Wall -g
+bash-4.1$ Project1_sgaml[Kble2_207
+welcome to craps, please enter a random number seed
+234567
+how much would you like to bet, bewteen 5 and your current wealth
+1
+That bet is too low enter a new one1000
+you dont have enough to do that please enter new number
+30
+Is this for(1) or against(2) you?
+1
+press any char to roll dice
+r
+first die 5
+second die 5
+the total is 10
+nada, would you like to double bet Y(1)/N(2)
+1
+the point is: 10
+press any char to roll dice
+r
+first die 5
+second die 6
+the total is 11
+nada
+the point is: 10
+press any char to roll dice
+r
+first die 6
+second die 4
+the total is 10
+You win! Would you like to let it ride? Yes(1)/No(2)
+1
+press any char to roll dice
+r
+first die 4
+second die 1
+the total is 5
+nada, would you like to double bet Y(1)/N(2)
+1
+Sorry you dont have enough to double the bet
+the point is: 5
+press any char to roll dice
+r
+first die 3
+second die 4
+the total is 7
+you lose
+winnings -60
+total money 40
+play again? Y(1)/N(2)2
+bash-4.1$ Project1_sgamble2_207
+welcome to craps, please enter a random number seed
+157424
+how much would you like to bet, bewteen 5 and your current wealth
+40
+Is this for(1) or against(2) you?
+2
+press any char to roll dice
+r
+first die 3
+second die 1
+the total is 4
+nada, would you like to double bet Y(1)/N(2)
+2
+the point is: 4
+press any char to roll dice
+r
+first die 5
+second die 5
+the total is 10
+nada
+the point is: 4
+press any char to roll dice
+r
+first die 6
+second die 4
+the total is 10
+nada
+the point is: 4
+press any char to roll dice
+r
+first die 4
+second die 3
+the total is 7
+You win! Would you like to let it ride? Yes(1)/No(2)
+2
+winnings 40
+total money 140
+play again? Y(1)/N(2)1
+how much would you like to bet, bewteen 5 and your current wealth
+60
+Is this for(1) or against(2) you?
+1
+press any char to roll dice
+r
+first die 6
+second die 2
+the total is 8
+nada, would you like to double bet Y(1)/N(2)
+1
+the point is: 8
+press any char to roll dice
+r
+first die 2
+second die 3
+the total is 5
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 3
+second die 3
+the total is 6
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 6
+second die 4
+the total is 10
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 1
+second die 6
+the total is 7
+you lose
+winnings -120
+total money 20
+play again? Y(1)/N(2)2
+bash-4.1$ Project1_sgamble2_207
+welcome to craps, please enter a random number seed
+234583
+how much would you like to bet, bewteen 5 and your current wealth
+6
+Is this for(1) or against(2) you?
+2
+press any char to roll dice
+r
+first die 5
+second die 2
+the total is 7
+you lose
+winnings -6
+total money 94
+play again? Y(1)/N(2)1
+how much would you like to bet, bewteen 5 and your current wealth
+5
+Is this for(1) or against(2) you?
+1
+press any char to roll dice
+r
+first die 2
+second die 6
+the total is 8
+nada, would you like to double bet Y(1)/N(2)
+2
+the point is: 8
+press any char to roll dice
+r
+first die 2
+second die 1
+the total is 3
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 4
+second die 6
+the total is 10
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 2
+second die 2
+the total is 4
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 5
+second die 5
+the total is 10
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 4
+second die 2
+the total is 6
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 4
+second die 2
+the total is 6
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 5
+second die 4
+the total is 9
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 2
+second die 4
+the total is 6
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 3
+second die 2
+the total is 5
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 1
+second die 4
+the total is 5
+nada
+the point is: 8
+press any char to roll dice
+r
+first die 3
+second die 5
+the total is 8
+You win! Would you like to let it ride? Yes(1)/No(2)
+1
+press any char to roll dice
+r
+first die 2
+second die 3
+the total is 5
+nada, would you like to double bet Y(1)/N(2)
+2
+the point is: 5
+press any char to roll dice
+r
+first die 1
+second die 5
+the total is 6
+nada
+the point is: 5
+press any char to roll dice
+r
+first die 5
+second die 3
+the total is 8
+nada
+the point is: 5
+press any char to roll dice
+r
+first die 4
+second die 6
+the total is 10
+nada
+the point is: 5
+press any char to roll dice
+r
+first die 2
+second die 5
+the total is 7
+you lose
+winnings -5
+total money 89
+play again? Y(1)/N(2)2
+bash-4.1$ exit
+
+Script done on Sat 27 Feb 2016 05:11:48 PM EST

@@ -1,0 +1,20 @@
+CS 262 Intro. to Low-level Programming. 
+Taken Spring 2016 with Prof. John Otten
+
+Work was done on GMU's Zeus server. The files 
+
+Lab 1: Hello World
+Lab 2: I/O and Types
+Lab 3: Menu that takes a letter and rectangle size and prints a rectangle filled or just it's border out of the letter 
+Lab 4: Takes a number sums up all numbers less than or equal to it
+Lab 5: A lab using gdb to debug
+Lab 6: Takes a file, parses it, and for each line gets a number which corresponds to which word in the line to delete
+Lab 7: Missing
+Lab 8: Uses linked lists to store an array of locations and information about them
+Lab 9: Introduction to project set up, multiple files, header files, and makefiles
+Lab 10: More on linked lists and command line arguments.
+Lab 11: Bitwise operations
+
+Project 1: Simulates a game of craps
+Project 2: Deciphers or encodes a file based of a given key
+Project 3: User builds a pizza and it gets added to a list of orders.

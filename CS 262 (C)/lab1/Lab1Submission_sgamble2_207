@@ -1,0 +1,39 @@
+Script started on Wed 27 Jan 2016 03:52:18 PM EST
+[?1034hbash-4.1$ uname -a
+Linux zeus-0 2.6.32-573.12.1.el6.centos.plus.x86_64 #1 SMP Wed Dec 16 16:48:42 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+hermes_web  lab1_sgamble2_207	 Lab1Submission_sgamble2_207
+lab1	    lab1_sgamble2_207.c
+bash-4.1$ cat lab1_sgamble2_207.c
+//Sean Gamble G00892005
+//cs 262, Lab Section 207
+//Lab 1
+//
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	printf("Hello world!\n");
+	printf("My name is Sean Gamble>.\n");
+	return 0;
+}
+
+bash-4.1$ rm lab1 lab1_sgaml[Kble2_207
+bash-4.1$ make lab1_sgamble2_207
+cc     lab1_sgamble2_207.c   -o lab1_sgamble2_207
+bash-4.1$ ls
+hermes_web  lab1_sgamble2_207  lab1_sgamble2_207.c  Lab1Submission_sgamble2_207
+bash-4.1$ ./lab1<[Ks[K_sgamble2_207
+Hello world!
+My name is Sean Gamble>.
+bash-4.1$ gcc -0[Ko lab1 lab1 [K_sgamble2_207.c
+bash-4.1$ ls
+hermes_web  lab1_sgamble2_207	 Lab1Submission_sgamble2_207
+lab1	    lab1_sgamble2_207.c
+bash-4.1$ ./lab1
+Hello world!
+My name is Sean Gamble>.
+bash-4.1$ exit
+
+Script done on Wed 27 Jan 2016 03:55:59 PM EST

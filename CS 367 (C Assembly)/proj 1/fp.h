@@ -1,0 +1,4 @@
+
+#define EXPONENT_BITS 6
+#define FRACTION_BITS 6
+

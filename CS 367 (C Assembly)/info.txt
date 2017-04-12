@@ -1,0 +1,4 @@
+Project 1: Converts numbers to floating point and back
+Project 2: Binary bomb (reading assembly)
+Project 3: Implements malloc, realloc, and free
+Project 4: Implements a TLB and virtual memory 

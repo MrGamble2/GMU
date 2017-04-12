@@ -1,0 +1,110 @@
+Script started on Thu 14 Apr 2016 05:09:10 PM EDT
+bash-4.1$ -uname 1[Ka
+bash: -uname: command not found
+bash-4.1$ uname -a
+Linux zeus-1 2.6.32-573.22.1.el6.centos.plus.x86_64 #1 SMP Wed Mar 23 17:51:43 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ cat[K[K[Kls
+Lab10_sgamble2_207.c  Lab10_typescript_sgamble2_207  Makefile
+bash-4.1$ cat Lab10_sgamble2_207
+cat: Lab10_sgamble2_207: No such file or directory
+bash-4.1$ cat Lab10_sgamble2_207.c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node
+{
+	int value;
+	struct Node *next;	
+}node;
+
+void insertNodeSorted(node **dummy, int tvalue)
+{                       
+        node *newNode=malloc(sizeof(node));
+        newNode->value=tvalue;
+	newNode->next=NULL;
+
+	node *ptr=*dummy;
+        int test=0;
+        while(ptr->next!=NULL && test!=1)
+        {
+                if(ptr->next->value >= tvalue)
+                {
+                        test=1;
+                }
+                else
+                {
+                        ptr=ptr->next;
+                }
+        }
+        //insert
+       	newNode->next=ptr->next;
+        ptr->next=newNode;
+}
+
+
+	
+void printList(node **dummy)
+{
+	node* ptr=*dummy;
+	ptr=ptr->next;
+	while(ptr!=NULL)
+	{
+		printf("%d ",ptr->value);
+		ptr=ptr->next;
+	}		
+}
+
+void deleteList(node **dummy)
+{	
+	node* tempP=*dummy;
+	node* ptr=*dummy;
+	while(ptr!=NULL)
+	{
+		tempP=ptr->next;
+		free(ptr);
+		ptr=tempP;
+	}	
+}
+
+int main(int argc, char *argv[])
+{
+        node* head=NULL;
+        head=malloc(sizeof(node));
+	head->next=NULL;
+	head->value=0;
+        srandom(atoi(argv[1]));
+        int i;
+        int maxRan=atoi(argv[3]);
+        for(i=0;i<atoi(argv[2]);i++)
+        {
+                int new=random()%(maxRan+1);
+                insertNodeSorted(&head, new);
+        }
+	printList(&head);
+	deleteList(&head);
+	return 1;
+}				
+bash-4.1$ make
+gcc  -o  Lab10_sgamble2  Lab10_sgamble2_207.c  
+bash-4.1$ ls
+Lab10_sgamble2	Lab10_sgamble2_207.c  Lab10_typescript_sgamble2_207  Makefile
+bash-4.1$ Lab1-[K0_sgamvl3[K[K[Kble2 .Lab10_sgamble2 [C[C[C[C[C[C[C[C[C[C[C/Lab10_sgamble2 [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C2626[K262 50 1000
+27 56 95 111 115 133 133 145 161 178 179 179 244 260 277 288 332 345 350 374 421 440 454 456 473 506 531 532 560 563 683 691 698 702 719 758 775 811 825 859 865 869 878 884 885 886 923 930 987 989 bash-4.1$ 
+bash-4.1$ c[Kvalgrind --leak-check=yea[Ks la[K[KLab10_sgamble2_207[K[K[K[K 262 50 1000
+==21288== Memcheck, a memory error detector
+==21288== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==21288== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==21288== Command: Lab10_sgamble2 262 50 1000
+==21288== 
+30 39 53 58 76 89 92 108 122 153 178 203 208 219 223 224 275 276 294 306 328 333 379 450 453 481 488 572 591 591 637 654 668 669 673 682 691 728 734 742 745 770 796 838 843 843 884 897 906 987 ==21288== 
+==21288== HEAP SUMMARY:
+==21288==     in use at exit: 0 bytes in 0 blocks
+==21288==   total heap usage: 51 allocs, 51 frees, 816 bytes allocated
+==21288== 
+==21288== All heap blocks were freed -- no leaks are possible
+==21288== 
+==21288== For counts of detected and suppressed errors, rerun with: -v
+==21288== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 6 from 6)
+bash-4.1$ exit
+
+Script done on Thu 14 Apr 2016 05:14:21 PM EDT

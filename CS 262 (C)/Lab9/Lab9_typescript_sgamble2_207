@@ -1,0 +1,140 @@
+Script started on Fri 08 Apr 2016 05:25:25 PM EDT
+[?1034hbash-4.1$ uname -a
+Linux zeus-1 2.6.32-573.22.1.el6.centos.plus.x86_64 #1 SMP Wed Mar 23 17:51:43 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+bin  include  Lab9_typescript_sgamble2_207  lib  Makefile  obj	src
+bash-4.1$ ls bin
+bash-4.1$ ls bin[K[K[Kobj
+bash-4.1$ ls obj[K[K[Kinclude[K[K[K[K[K[K[Ko[Klib
+bash-4.1$ ls src
+Function1.c  Function2.c  Function3.c  Function4.c  Function5.c  Lab9.c
+bash-4.1$ ls src[K[K[Kinclude
+Function1.h  Function2.h  Function3.h  Function4.h  Function5.h  Lab9.h
+bash-4.1$ make
+gcc -W -O3 -I./include  -c src/Lab9.c -o obj/Lab9.o
+gcc -W -O3 -I./include  -c src/Function1.c -o obj/Function1.o
+gcc -W -O3 -I./include  -c src/Function2.c -o obj/Function2.o
+gcc -W -O3 -I./include  -c src/Function3.c -o obj/Function3.o
+gcc -W -O3 -I./include  -c src/Function4.c -o obj/Function4.o
+gcc -W -O3 -I./include  -c src/Function5.c -o obj/Function5.o
+gcc -W -O3 -I./include  -o bin/Lab9 ./obj/Lab9.o ./obj/Function1.o ./obj/Function2.o ./obj/Function3.o ./obj/Function4.o ./obj/Function5.o
+bash-4.1$ ./bin/LAb9[K[K[Kab9
+In Function1()...
+Function1(): i = 0,p[i] = 0 
+Function1(): i = 1,p[i] = 1 
+Function1(): i = 2,p[i] = 2 
+Function1(): i = 3,p[i] = 3 
+Function1(): i = 4,p[i] = 4 
+Function1(): i = 5,p[i] = 5 
+Function1(): i = 6,p[i] = 6 
+Function1(): i = 7,p[i] = 7 
+Function1(): i = 8,p[i] = 8 
+Function1(): i = 9,p[i] = 9 
+In Function2()...
+Function2(): i = 0,p[i] = 0 
+Function2(): i = 1,p[i] = 1 
+Function2(): i = 2,p[i] = 2 
+Function2(): i = 3,p[i] = 3 
+Function2(): i = 4,p[i] = 4 
+Function2(): i = 5,p[i] = 5 
+Function2(): i = 6,p[i] = 6 
+Function2(): i = 7,p[i] = 7 
+Function2(): i = 8,p[i] = 8 
+Function2(): i = 9,p[i] = 9 
+In Function3()...
+Function3(): i = 0,p[i] = 0 
+Function3(): i = 1,p[i] = 1 
+Function3(): i = 2,p[i] = 2 
+Function3(): i = 3,p[i] = 3 
+Function3(): i = 4,p[i] = 4 
+Function3(): i = 5,p[i] = 5 
+Function3(): i = 6,p[i] = 6 
+Function3(): i = 7,p[i] = 7 
+Function3(): i = 8,p[i] = 8 
+Function3(): i = 9,p[i] = 9 
+In Function4()...
+Function4(): i = 0,p[i] = 0 
+Function4(): i = 1,p[i] = 1 
+Function4(): i = 2,p[i] = 2 
+Function4(): i = 3,p[i] = 3 
+Function4(): i = 4,p[i] = 4 
+Function4(): i = 5,p[i] = 5 
+Function4(): i = 6,p[i] = 6 
+Function4(): i = 7,p[i] = 7 
+Function4(): i = 8,p[i] = 8 
+Function4(): i = 9,p[i] = 9 
+In Function5()...
+Function5(): i = 0,p[i] = 0 
+Function5(): i = 1,p[i] = 1 
+Function5(): i = 2,p[i] = 2 
+Function5(): i = 3,p[i] = 3 
+Function5(): i = 4,p[i] = 4 
+Function5(): i = 5,p[i] = 5 
+Function5(): i = 6,p[i] = 6 
+Function5(): i = 7,p[i] = 7 
+Function5(): i = 8,p[i] = 8 
+Function5(): i = 9,p[i] = 9 
+bash-4.1$ ar rc lib.lib/lib[C[C[C/liblab9.a *.0.*.0/*.0o*.0b*.0j*.0/*.0[C[C[C[Ko
+bash-4.1$ ls lib
+liblab9.a
+bash-4.1$ gcc -o bin/lab9_from_lib -I./include src/Lab9.c  -L./lib -llab9
+bash-4.1$ 
+bash-4.1$ run[K[K[Klib[K[Kab9_from_lib.lab9_from_lib[C[C[C[C[C[C[C[C[C[C[C/lab9_from_libblab9_from_libilab9_from_libnlab9_from_lib/lab9_from_lib
+In Function1()...
+Function1(): i = 0,p[i] = 0 
+Function1(): i = 1,p[i] = 1 
+Function1(): i = 2,p[i] = 2 
+Function1(): i = 3,p[i] = 3 
+Function1(): i = 4,p[i] = 4 
+Function1(): i = 5,p[i] = 5 
+Function1(): i = 6,p[i] = 6 
+Function1(): i = 7,p[i] = 7 
+Function1(): i = 8,p[i] = 8 
+Function1(): i = 9,p[i] = 9 
+In Function2()...
+Function2(): i = 0,p[i] = 0 
+Function2(): i = 1,p[i] = 1 
+Function2(): i = 2,p[i] = 2 
+Function2(): i = 3,p[i] = 3 
+Function2(): i = 4,p[i] = 4 
+Function2(): i = 5,p[i] = 5 
+Function2(): i = 6,p[i] = 6 
+Function2(): i = 7,p[i] = 7 
+Function2(): i = 8,p[i] = 8 
+Function2(): i = 9,p[i] = 9 
+In Function3()...
+Function3(): i = 0,p[i] = 0 
+Function3(): i = 1,p[i] = 1 
+Function3(): i = 2,p[i] = 2 
+Function3(): i = 3,p[i] = 3 
+Function3(): i = 4,p[i] = 4 
+Function3(): i = 5,p[i] = 5 
+Function3(): i = 6,p[i] = 6 
+Function3(): i = 7,p[i] = 7 
+Function3(): i = 8,p[i] = 8 
+Function3(): i = 9,p[i] = 9 
+In Function4()...
+Function4(): i = 0,p[i] = 0 
+Function4(): i = 1,p[i] = 1 
+Function4(): i = 2,p[i] = 2 
+Function4(): i = 3,p[i] = 3 
+Function4(): i = 4,p[i] = 4 
+Function4(): i = 5,p[i] = 5 
+Function4(): i = 6,p[i] = 6 
+Function4(): i = 7,p[i] = 7 
+Function4(): i = 8,p[i] = 8 
+Function4(): i = 9,p[i] = 9 
+In Function5()...
+Function5(): i = 0,p[i] = 0 
+Function5(): i = 1,p[i] = 1 
+Function5(): i = 2,p[i] = 2 
+Function5(): i = 3,p[i] = 3 
+Function5(): i = 4,p[i] = 4 
+Function5(): i = 5,p[i] = 5 
+Function5(): i = 6,p[i] = 6 
+Function5(): i = 7,p[i] = 7 
+Function5(): i = 8,p[i] = 8 
+Function5(): i = 9,p[i] = 9 
+bash-4.1$ exit
+
+Script done on Fri 08 Apr 2016 05:31:32 PM EDT

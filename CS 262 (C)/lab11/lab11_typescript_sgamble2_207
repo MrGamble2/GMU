@@ -1,0 +1,390 @@
+Script started on Tue 26 Apr 2016 05:14:42 PM EDT
+bash-4.1$ -uname a
+bash: -uname: command not found
+bash-4.1$ -uname a[C[Cuname a[K[C[C[C[C[C[C-a
+Linux zeus-0 2.6.32-573.22.1.el6.centos.plus.x86_64 #1 SMP Wed Mar 23 17:51:43 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ cat lab11_sgamble2_207.c
+#include <stdio.h>
+#include <stdlib.h>
+#define BYTETOBINARYPATTERN "%d%d%d%d%d%d%d%d"
+
+#define BYTETOBINARY(byte)  \
+  (byte & 0x80 ? 1 : 0), \
+  (byte & 0x40 ? 1 : 0), \
+  (byte & 0x20 ? 1 : 0), \
+  (byte & 0x10 ? 1 : 0), \
+  (byte & 0x08 ? 1 : 0), \
+  (byte & 0x04 ? 1 : 0), \
+  (byte & 0x02 ? 1 : 0), \
+  (byte & 0x01 ? 1 : 0) 
+
+
+#define PRINTBIN(x) printf(BYTETOBINARYPATTERN, BYTETOBINARY(x));
+
+void setlsbs(unsigned char *p, unsigned char b0)
+{
+	int i;
+	for(i=0;i<8;i++)
+	{
+		//lowest of p[i] replace wiht b0 ith bit
+		int gj=0;
+		int n;
+		for(n=0;n<=i;n++)
+		{
+			gj=gj*2;
+			if(gj==0)
+			{
+				gj=1;
+			}
+		}
+		unsigned char c= gj;
+		c= c & b0;
+		c= c>>i;
+		if(c==1)
+		{
+			p[i]=p[i] | c;
+		}
+		else
+		{	
+			c= 1;
+			c= ~c;
+			p[i]=p[i] & c;
+		}
+	}
+	return;
+}
+unsigned char getlsbs(unsigned char *p)
+{
+	unsigned char f=0;
+	int i;
+	for(i=0;i<8; i++)
+	{
+		int gj=0;
+                int n;
+                /*for(n=0;n<=i;n++)
+                {       
+                        gj=gj*2;
+                        if(gj==0)
+                        {       
+                                gj=1;
+                        }
+                }*/
+		unsigned char c= 1;
+		c=c & p[i];
+		//shift c
+		c= c<<i;		
+		f= f | c;
+	}
+	return f;
+}
+
+void main(int argc, char* argv[])
+{
+	int i= atoi(argv[1]);
+	srandom(i);
+	unsigned char byte0;
+	unsigned char *p;
+	p=malloc(sizeof(unsigned char)*8);
+	if(p==NULL)
+	{
+		printf("could not allocate memory for p\n");
+		exit(0);
+	}
+	int n;
+	printf("first p\n");
+	for(n=0;n<8;n++)
+	{
+		p[n]=random()%256;
+		printf("%d ", p[n]);PRINTBIN(p[n]);printf("\n");
+	}
+	byte0=random()%256;
+	printf("first byte0\n");
+	printf("%d ", byte0);PRINTBIN(byte0);printf("\n");
+	setlsbs(p, byte0);
+	printf("second p\n");
+	for(n=0;n<8;n++)
+	{	
+		printf("%d ",p[n]);PRINTBIN(p[n]);printf("\n");
+	}
+	unsigned char news=getlsbs(p);
+	printf("second byte0\n");
+	printf("%d ",news);PRINTBIN(news);printf("\n");
+	return;
+}
+	
+bash-4.1$ cat makefiu[Kle[K[K[K[K[K[K[K[KMakefile
+CC = gcc
+
+SRC = lab11_sgamble2_207.c
+TARGET = lab11_sgamble2  
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC)  -o  $@  $(SRC)  
+clean:
+	rm  -f  $(TARGET)  i
+bash-4.1$ ls
+lab11_sgamble2_207.c  lab11_typescript_sgamble2_207  Makefile
+bash-4.1$ make
+gcc  -o  lab11_sgamble2  lab11_sgamble2_207.c  
+bash-4.1$ ls
+lab11_sgamble2	lab11_sgamble2_207.c  lab11_typescript_sgamble2_207  Makefile
+bash-4.1$ lab11_sgamble12[K[K2
+Segmentation fault
+bash-4.1$ lab11_sgamble2 15
+first p
+213 11010101
+102 01100110
+61 00111101
+135 10000111
+80 01010000
+17 00010001
+178 10110010
+80 01010000
+first byte0
+31 00011111
+second p
+213 11010101
+103 01100111
+61 00111101
+135 10000111
+81 01010001
+16 00010000
+178 10110010
+80 01010000
+second byte0
+31 00011111
+bash-4.1$ lab11_sgamble2 15[K[K10[K
+first p
+103 01100111
+198 11000110
+105 01101001
+115 01110011
+81 01010001
+255 11111111
+74 01001010
+236 11101100
+first byte0
+41 00101001
+second p
+103 01100111
+198 11000110
+104 01101000
+115 01110011
+80 01010000
+255 11111111
+74 01001010
+236 11101100
+second byte0
+41 00101001
+bash-4.1$ lab11_sgamble2 1[K143
+first p
+120 01111000
+56 00111000
+125 01111101
+194 11000010
+79 01001111
+201 11001001
+69 01000101
+163 10100011
+first byte0
+137 10001001
+second p
+121 01111001
+56 00111000
+124 01111100
+195 11000011
+78 01001110
+200 11001000
+68 01000100
+163 10100011
+second byte0
+137 10001001
+bash-4.1$ lab11_sgamble2 143[K[K[K15
+first p
+213 11010101
+102 01100110
+61 00111101
+135 10000111
+80 01010000
+17 00010001
+178 10110010
+80 01010000
+first byte0
+31 00011111
+second p
+213 11010101
+103 01100111
+61 00111101
+135 10000111
+81 01010001
+16 00010000
+178 10110010
+80 01010000
+second byte0
+31 00011111
+bash-4.1$ lab11_sgamble2 15134
+first p
+188 10111100
+171 10101011
+24 00011000
+59 00111011
+88 01011000
+136 10001000
+160 10100000
+164 10100100
+first byte0
+76 01001100
+second p
+188 10111100
+170 10101010
+25 00011001
+59 00111011
+88 01011000
+136 10001000
+161 10100001
+164 10100100
+second byte0
+76 01001100
+bash-4.1$ lab11_sgamble2 151342354
+first p
+135 10000111
+68 01000100
+46 00101110
+130 10000010
+193 11000001
+191 10111111
+115 01110011
+209 11010001
+first byte0
+167 10100111
+second p
+135 10000111
+69 01000101
+47 00101111
+130 10000010
+192 11000000
+191 10111111
+114 01110010
+209 11010001
+second byte0
+167 10100111
+bash-4.1$ lab11_sgamble2 151342354[K[K[K[K[K43
+first p
+179 10110011
+161 10100001
+41 00101001
+24 00011000
+14 00001110
+224 11100000
+126 01111110
+210 11010010
+first byte0
+16 00010000
+second p
+178 10110010
+160 10100000
+40 00101000
+24 00011000
+15 00001111
+224 11100000
+126 01111110
+210 11010010
+second byte0
+16 00010000
+bash-4.1$ lab11_sgamble2 15134324[K[K[K[K[K[K[K[K99843
+first p
+252 11111100
+12 00001100
+33 00100001
+32 00100000
+93 01011101
+129 10000001
+36 00100100
+154 10011010
+first byte0
+224 11100000
+second p
+252 11111100
+12 00001100
+32 00100000
+32 00100000
+92 01011100
+129 10000001
+37 00100101
+155 10011011
+second byte0
+224 11100000
+bash-4.1$ lab11_sgamble2 99843[K[K[K[K[K09
+first p
+3 00000011
+114 01110010
+165 10100101
+87 01010111
+114 01110010
+157 10011101
+236 11101100
+230 11100110
+first byte0
+202 11001010
+second p
+2 00000010
+115 01110011
+164 10100100
+87 01010111
+114 01110010
+156 10011100
+237 11101101
+231 11100111
+second byte0
+202 11001010
+bash-4.1$ lab11_sgamble2 09342
+first p
+160 10100000
+246 11110110
+72 01001000
+198 11000110
+172 10101100
+40 00101000
+208 11010000
+57 00111001
+first byte0
+90 01011010
+second p
+160 10100000
+247 11110111
+72 01001000
+199 11000111
+173 10101101
+40 00101000
+209 11010001
+56 00111000
+second byte0
+90 01011010
+bash-4.1$ lab11_sgamble2 093423[K[K[K[K[K[K3
+first p
+58 00111010
+209 11010001
+216 11011000
+40 00101000
+81 01010001
+124 01111100
+200 11001000
+176 10110000
+first byte0
+1 00000001
+second p
+59 00111011
+208 11010000
+216 11011000
+40 00101000
+80 01010000
+124 01111100
+200 11001000
+176 10110000
+second byte0
+1 00000001
+bash-4.1$ exit
+
+Script done on Tue 26 Apr 2016 05:17:36 PM EDT

@@ -1,0 +1,10 @@
+You are to NARF! create a (very) simple word processor.
+Your program will PINKY prompt the user to enter the name
+of an input file BRAIN containing text ("Lab4_bad.txt").
+It will then prompt you for the name TAKE of an output file.
+Your program OVER will open the input file for reading,
+and open the output file for THE writing. The program
+will then read the input file, one line at a time.
+After each line is WORLD! read, the line will be printed to the
+screen and a TONIGHT prompt will appear.
+

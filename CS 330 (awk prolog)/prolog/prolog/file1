@@ -1,0 +1,35 @@
+prereq_chain(A,B):-prereqcheck(A,B).
+prereq_chain(A,B):-coreq(B,X), prereqcheck(A,X).
+prereq_chain(A,B):-coreq(X,B), prereqcheck(A,X).
+
+prereqcheck(A,B):-prereq(A,B).
+prereqcheck(A,B):-prereq(A,X), prereqcheck(X,B).
+
+invalid_pair(X,A,B):-entry(X,B,M),entry(X,A,N),prereq_chain(A,B),date_after(N,M).
+invalid_pair(X,A,B):-entry(X,B,_),prereq_chain(A,B),not_taken(X,A).
+invalid_pair(X,A,B):-entry(X,B,M),entry(X,A,N),coreq(A,B),dif_date(M,N).
+invalid_pair(X,A,B):-entry(X,B,M),entry(X,A,N),coreq(B,A),dif_date(M,N).
+invalid_pair(X,A,B):-entry(X,B,_),coreq(B,A),not_taken(X,A). 
+invalid_pair(X,A,B):-entry(X,B,_),coreq(A,B),not_taken(X,A).
+
+not_taken(X,A):-entry(X,A,_),!,fail.
+not_taken(X,A).
+date_after([Sempre,Datepre],[Sempost,Datepost]):-Datepre>Datepost.
+date_after([Sempre,Datepre],[Sempost,Datepre]):-sem_before(Sempost,Sempre).
+dif_date(M,N):-same_date(M,N),!,fail.
+dif_date(M,N).
+same_date([H|T],[H|T]).
+
+bad_course(X,A):-entry(X,A,_),bad_course1(X,A).
+bad_course1(X,A):-entry(X,A,_),student(X,Y,_), approved_list(Y,L),member(A,L),!,fail.
+bad_course1(X,A):-entry(X,A,_),student(X,Y,_),approved_list(Y,_).
+member(X,[X|_]).
+member(X,[_|T]):-member(X,T).
+
+valid_schedule(X):-bad_course(X,A),!,fail.
+valid_schedule(X):-invalid_pair(X,A,B), !, fail.
+valid_schedule(X).
+
+sem_before(spring,fall).
+sem_before(spring,summer).
+sem_before(summer,fall).

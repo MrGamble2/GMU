@@ -1,0 +1,101 @@
+Script started on Tue 02 Feb 2016 01:37:06 PM EST
+[?1034hbash-4.1$ uname -a
+Linux zeus-0 2.6.32-573.12.1.el6.centos.plus.x86_64 #1 SMP Wed Dec 16 16:48:42 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+bash-4.1$ ls
+hermes_web	     Lab1Submission_sgamble2_207  Lab2_typescript_sgamble2_207
+lab1		     lab2			  Makefile
+lab1_sgamble2_207    lab2_sgamble2_207		  mason.gmu.edu
+lab1_sgamble2_207.c  lab2_sgamble2_207.c
+bash-4.1$ cat lab2_sgamblw[Ke2_so[K[K207.c
+//Sean Gamble G00892005
+//CS 262, lab Section 207
+//Lab 2/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	double agi;
+	int rate;
+	double owed;
+	double rateD;
+	double netIncome;
+
+        printf("Input AGI");
+        scanf("%lf", &agi);
+	if(agi<0)
+	{
+		printf("we dont accept negative values");
+		return 0;
+	}
+
+        printf("Input tax rate");
+        scanf("%d", &rate);
+	if(rate<0)
+	{
+		printf("we dont accept negative values");
+		return 0;
+	}
+
+	rateD=(double) rate;
+        rateD=rateD/100;
+        owed=rateD*agi;
+        netIncome=agi-owed;
+        printf("AGI %.2f, Tax Rate %d, Owed %.2f, Net Income %.2f \n", agi,rate,owed,netIncome);
+	return 0;
+}
+bash-4.1$ cat Makefile
+CFLAGS=-Wall -g
+
+clean:
+	rm -f lab2_sgamble2_207
+bash-4.1$ rm
+rm: missing operand
+Try `rm --help' for more information.
+bash-4.1$ rm sgamble[K[K[K[K[K[K[Klab2_sgamble2_207
+bash-4.1$ make lab2_sgamble2_207
+cc -Wall -g    lab2_sgamble2_207.c   -o lab2_sgamble2_207
+bash-4.1$ ls
+hermes_web	     Lab1Submission_sgamble2_207  Lab2_typescript_sgamble2_207
+lab1		     lab2			  Makefile
+lab1_sgamble2_207    lab2_sgamble2_207		  mason.gmu.edu
+lab1_sgamble2_207.c  lab2_sgamble2_207.c
+bash-4.1$ lab2_sgamble2_207
+Input AGI2300.5
+Input tax rate10
+AGI 2300.50, Tax Rate 10, Owed 230.05, Net Income 2070.45 
+bash-4.1$ lab2_sgamble2_207
+Input AGI2300.5
+Input tax rate0
+AGI 2300.50, Tax Rate 0, Owed 0.00, Net Income 2300.50 
+bash-4.1$ lab2_sgamble2_207
+Input AGI-47.23
+we dont accept negative valuesbash-4.1$ lab2_sgamble2_207
+Input AGI0
+Input tax rate20
+AGI 0.00, Tax Rate 20, Owed 0.00, Net Income 0.00 
+bash-4.1$ lab2_sgamble2_207
+Input AGI10
+Input tax rate15
+AGI 10.00, Tax Rate 15, Owed 1.50, Net Income 8.50 
+bash-4.1$ lab2_sgamble2_207
+Input AGI7894.63
+Input tax rate17
+AGI 7894.63, Tax Rate 17, Owed 1342.09, Net Income 6552.54 
+bash-4.1$ lab2_sgamble2_207
+Input AGI7894.63
+Input tax rate-17
+we dont accept negative valuesbash-4.1$ lab2_sgamble2_207
+Input AGI10000
+Input tax rate18
+AGI 10000.00, Tax Rate 18, Owed 1800.00, Net Income 8200.00 
+bash-4.1$ make clean
+rm -f lab2_sgamble2_207
+bash-4.1$ ls
+hermes_web	     Lab1Submission_sgamble2_207   Makefile
+lab1		     lab2			   mason.gmu.edu
+lab1_sgamble2_207    lab2_sgamble2_207.c
+lab1_sgamble2_207.c  Lab2_typescript_sgamble2_207
+bash-4.1$ exit
+
+Script done on Tue 02 Feb 2016 01:41:23 PM EST
